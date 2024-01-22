@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/zavoloka_quest
+    username: zavoloka
+    password: Z@v010ka
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  flyway:
+    enabled: false  # Disable Flyway if you're not using it

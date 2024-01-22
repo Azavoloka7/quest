@@ -4,6 +4,8 @@ import com.zavoloka.quest.model.Player;
 import com.zavoloka.quest.repository.PlayerRepository;
 import com.zavoloka.quest.service.PuzzleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class PlayerController {
     // ... (other methods)
 
     @PostMapping("/{id}/explore/{location}")
-    public Player exploreLocation(@PathVariable Long id, @PathVariable String location) {
+    public ResponseEntity<Player> exploreLocation( @PathVariable Long id, @PathVariable String location) {
         Player player = getPlayerById(id);
 
         // Check if the location is available for exploration
@@ -36,9 +38,10 @@ public class PlayerController {
             // Increase the player's score by 10 for exploring the location
             player.setScore(player.getScore() + 10);
 
-            return playerRepository.save(player);
+            Player savedPlayer = playerRepository.save(player);
+            return ResponseEntity.ok(savedPlayer);
         } else {
-            throw new IllegalArgumentException("Invalid location: " + location);
+            throw new InvalidLocationException("Invalid location: " + location);
         }
     }
 
@@ -47,5 +50,10 @@ public class PlayerController {
                 .orElseThrow(() -> new IllegalArgumentException("Player not found with id: " + id));
     }
 
-    // ... (other methods)
+    @ResponseStatus( HttpStatus.BAD_REQUEST)
+    public static class InvalidLocationException extends RuntimeException {
+        public InvalidLocationException(String message) {
+            super(message);
+        }
+    }
 }

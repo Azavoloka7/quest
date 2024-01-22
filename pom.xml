@@ -45,6 +45,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -64,4 +65,14 @@
 		</plugins>
 	</build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/Azavoloka7/quest</url>
+        </repository>
+        <snapshotRepository>
+            <id>github-snapshots</id>
+            <url>https://maven.pkg.github.com/Azavoloka7/quest/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
