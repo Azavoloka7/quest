@@ -18,4 +18,9 @@ public class RandomPuzzleGenerator implements PuzzleGenerator {
         }
         return puzzles.get(random.nextInt(puzzles.size()));
     }
+
+    @Override
+    public String generatePuzzleForLocation( String location ) {
+        return null;
+    }
 }

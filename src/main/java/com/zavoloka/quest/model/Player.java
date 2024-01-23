@@ -29,13 +29,13 @@ public class Player {
     /**
      * The current puzzle assigned to the player.
      */
-    @Column
+    @Column(length = 255) // Adjust the length as needed
     private String puzzle;
 
     /**
      * The username of the player.
      */
-    @Column
+    @Column(nullable = false, unique = true)
     private String username;
 
     /**
@@ -47,7 +47,7 @@ public class Player {
     /**
      * The current location where the player is situated in the game world.
      */
-    @Column(name = "current_location")
+    @Column(name = "current_location", length = 255) // Adjust the length as needed
     private String currentLocation;
 
     /**

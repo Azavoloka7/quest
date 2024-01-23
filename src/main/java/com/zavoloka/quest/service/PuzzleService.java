@@ -25,17 +25,38 @@ public class PuzzleService {
             "Discover the underwater realm beneath the river's surface!"
     );
 
+    public String generatePuzzle() {
+        // Generate a random puzzle without specifying a location
+        return getRandomElement(List.of(
+                "Solve the mystery puzzle!",
+                "Unravel the enigma hidden in the shadows!",
+                "Decode the secret message to proceed!"
+        ));
+    }
+
     public String generatePuzzleForLocation(String location) {
         switch (location) {
             case "forest":
-                return getRandomElement(forestPuzzles);
+                return generateForestPuzzle();
             case "mountains":
-                return getRandomElement(mountainsPuzzles);
+                return generateMountainsPuzzle();
             case "river":
-                return getRandomElement(riverPuzzles);
+                return generateRiverPuzzle();
             default:
                 throw new IllegalArgumentException("Invalid location: " + location);
         }
+    }
+
+    private String generateForestPuzzle() {
+        return getRandomElement(forestPuzzles);
+    }
+
+    private String generateMountainsPuzzle() {
+        return getRandomElement(mountainsPuzzles);
+    }
+
+    private String generateRiverPuzzle() {
+        return getRandomElement(riverPuzzles);
     }
 
     private String getRandomElement(List<String> list) {
