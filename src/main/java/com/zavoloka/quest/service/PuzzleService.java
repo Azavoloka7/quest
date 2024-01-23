@@ -7,6 +7,7 @@ import java.util.Random;
 
 @Service
 public class PuzzleService {
+    private static final String DEFAULT_LOCATION = "unknown";
     private final Random random = new Random();
 
     private final List<String> forestPuzzles = List.of(
