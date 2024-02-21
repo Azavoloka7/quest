@@ -20,7 +20,7 @@
         <java.version>21</java.version>
         <spring.boot.version>3.2.2</spring.boot.version>
         <javax.persistence.version>2.2</javax.persistence.version>
-        <postgresql.version>42.6.0</postgresql.version>
+        <postgresql.version>42.6.1</postgresql.version>
         <lombok.version>1.18.30</lombok.version>
         <javax.activation.version>1.2.0</javax.activation.version>
         <hibernate.version>6.4.1.Final</hibernate.version>
